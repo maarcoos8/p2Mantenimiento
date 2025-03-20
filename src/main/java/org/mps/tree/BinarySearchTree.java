@@ -2,6 +2,7 @@ package src.main.java.org.mps.tree;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Objects;
 import java.util.ArrayList;
 
 public class BinarySearchTree<T> implements BinarySearchTreeStructure<T> {
@@ -34,40 +35,83 @@ public class BinarySearchTree<T> implements BinarySearchTreeStructure<T> {
 
     public BinarySearchTree(Comparator<T> comparator) {
         // TODO
+        this.comparator = comparator;
+        this.value = null;
+        this.left = null;
+        this.right = null;
     }
 
     @Override
     public void insert(T value) {
         // TODO
+        if (this.value == null) {
+            this.value = value;
+        } else {
+            if (comparator.compare(value, this.value) < 0) {
+                if (left == null) {
+                    left = new BinarySearchTree<>(comparator);
+                }
+                left.insert(value);
+            } else if (comparator.compare(value, this.value) > 0) {
+                if (right == null) {
+                    right = new BinarySearchTree<>(comparator);
+                }
+                right.insert(value);
+            }
+        }
     }
 
     @Override
     public boolean isLeaf() {
         // TODO
+        if (value == null) {
+            throw new BinarySearchTreeException("The binary tree is empty");
+        }
+        if (left == null && right == null) {
+            return true;
+        }
         return false;
     }
 
     @Override
     public boolean contains(T value) {
         // TODO
+        if (Objects.equals(value, this.value)) {
+            return true;
+        } else if (comparator.compare(value, this.value) < 0) {
+            if (left != null) {
+                return left.contains(value);
+            }
+        } else if (comparator.compare(value, this.value) > 0) {
+            if (right != null) {
+                return right.contains(value);
+            }
+        }
         return false;
     }
 
     @Override
     public T minimum() {
         // TODO
-        return null;
+        if (left == null) {
+            return value;
+        }
+        return left.minimum();
     }
 
     @Override
     public T maximum() {
         // TODO
-        return null;
+        if (right == null) {
+            return value;
+        }
+        return right.maximum();
     }
 
     @Override
     public void removeBranch(T value){
         // TODO
+
     }
 
     @Override
