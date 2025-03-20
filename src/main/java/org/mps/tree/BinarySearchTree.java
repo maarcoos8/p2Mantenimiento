@@ -1,4 +1,4 @@
-package tree;
+package src.main.java.org.mps.tree;
 
 import java.util.Comparator;
 import java.util.List;
