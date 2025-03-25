@@ -1,4 +1,4 @@
-package src.main.java.org.mps.tree;
+package org.mps.tree;
 
 import java.util.List;
 
