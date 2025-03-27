@@ -25,9 +25,25 @@ public class main {
 
         System.out.println("Depth: " + tree.depth());
 
+        System.out.println("En orden: " + tree.inOrder());
+
+        tree.removeValue(11);
+        System.out.println(tree.render());
+
         tree.removeBranch(6);
         System.out.println(tree.render());
 
-        
+        /*Probamos el balance*/
+        BinarySearchTree<Integer> treeBalance = new BinarySearchTree<>(comparator);
+        treeBalance.insert(3);
+        treeBalance.insert(1);
+        treeBalance.insert(4);
+        treeBalance.insert(5);
+        treeBalance.insert(6);
+        treeBalance.insert(7);
+        System.out.println(treeBalance.render());
+
+        treeBalance.balance();
+        System.out.println(treeBalance.render());
     }
 }
