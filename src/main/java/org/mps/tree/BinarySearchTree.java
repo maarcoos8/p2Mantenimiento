@@ -177,42 +177,40 @@ public class BinarySearchTree<T> implements BinarySearchTreeStructure<T> {
     @Override
     public void removeValue(T value) {
         if (value == null) {
-            throw new BinarySearchTreeException("El valor es nulo");
+            throw new BinarySearchTreeException("El valor no puede ser nulo.");
         }
+
         if (!this.contains(value)) {
-            throw new BinarySearchTreeException("El valor no está contenido en el árbol");
+            throw new BinarySearchTreeException("El valor no existe en el árbol");
         }
-
-        removeNode(value);
-    }
-
-    private BinarySearchTree<T> removeNode(T value) {
         if (comparator.compare(value, this.value) < 0) {
-            if (left != null) {
-                left = left.removeNode(value);
-            }
+            this.left.removeValue(value);
         } else if (comparator.compare(value, this.value) > 0) {
-            if (right != null) {
-                right = right.removeNode(value);
-            }
+            this.right.removeValue(value);
         } else {
-            // Cuando no tiene ni izq ni der
-            if (left == null && right == null) {
-                return null;
+            // Caso de nodo hoja
+            if (this.isLeaf()) {
+                this.value = null;
             }
-            // Cuando no tiene izq
-            if (left == null) {
-                return right;
+            // Caso de nodo con solo hijo derecho
+            else if (this.left == null) {
+                this.value = this.right.value;
+                this.left = this.right.left;
+                this.right = this.right.right;
             }
-            if (right == null) {
-                return left;
+            // Caso de nodo con solo hijo izquierdo
+            else if (this.right == null) {
+                this.value = this.left.value;
+                this.right = this.left.right;
+                this.left = this.left.left;
             }
-            // Cuando tiene izq y der
-            T minValue = right.minimum();
-            this.value = minValue;
-            right = right.removeNode(minValue);
+            // Caso de nodo con dos hijos
+            else {
+                T successor = this.right.minimum();
+                this.value = successor;
+                this.right.removeValue(successor);
+            }
         }
-        return this;
     }
 
     @Override
@@ -221,14 +219,12 @@ public class BinarySearchTree<T> implements BinarySearchTreeStructure<T> {
             throw new BinarySearchTreeException("El árbol está vacío");
         }
         List<T> list = new ArrayList<>();
-        if(this.value != null){
-            if(this.left != null){
-                list.addAll(this.left.inOrder());
-            }
-            list.add(this.value);
-            if(this.right != null){
-                list.addAll(this.right.inOrder());
-            }
+        if(left != null){
+            list.addAll(left.inOrder());
+        }
+        list.add(value);
+        if(right != null){
+            list.addAll(right.inOrder());
         }
         return list;
     }

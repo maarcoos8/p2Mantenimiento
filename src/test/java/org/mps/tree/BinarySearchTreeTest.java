@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Comparator;
+import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -22,15 +23,14 @@ public class BinarySearchTreeTest {
         tree = new BinarySearchTree<>(Comparator.<Integer>naturalOrder());
     }
 
-    /* BinarySearchTree */
-
+    /* Pruebas del constructor */   
     @Nested
     @DisplayName("Constructor")
     class pruebasConstructor {
 
         @Test
         @DisplayName("Constructor se ejecuta correctamente con un comparador que compara enteros")
-        public void constructor_comparadorEnteros_seEjecutaCorrectamente() {
+        public void constructor_comparadorEnteros_correcto() {
             // Arrange
 
             // Act
@@ -42,7 +42,7 @@ public class BinarySearchTreeTest {
 
         @Test
         @DisplayName("constructor lanza una excepcion si el comparador es nulo")
-        public void constructor_comparadorNulo_lanzaExcepcion() {
+        public void constructor_comparadorNulo_excepcion() {
             // Assert
             assertThrows(BinarySearchTreeException.class, () -> {
                 new BinarySearchTree<Integer>(null);
@@ -51,14 +51,14 @@ public class BinarySearchTreeTest {
     }
 
 
-    /* Insert */
+    /* Pruebas del método Insert */
     @Nested
     @DisplayName("Insert")
     class pruebasInsert {
 
         @Test
         @DisplayName("inserta correctamente el primer nodo en la raíz")
-        void insertaEnRaiz() {
+        void inserta_en_raiz() {
         
             // Act
             tree.insert(10);
@@ -69,7 +69,7 @@ public class BinarySearchTreeTest {
 
         @Test
         @DisplayName("inserta un nodo menor a la izquierda")
-        void insertaEnSubArbolIzquierdo() {
+        void inserta_en_subArbol_izq() {
 
             // Act
             tree.insert(10);
@@ -81,7 +81,7 @@ public class BinarySearchTreeTest {
 
         @Test
         @DisplayName("inserta un nodo mayor a la derecha")
-        void insertaEnSubArbolDerecho() {
+        void inserta_en_subArbol_dcho() {
 
             // Act
             tree.insert(10);
@@ -93,7 +93,7 @@ public class BinarySearchTreeTest {
 
         @Test
         @DisplayName("inserta nodos en ambas ramas")
-        void insertaIzquierdaYDerecha() {
+        void inserta_en_ambos() {
 
             // Act
             tree.insert(10);
@@ -106,7 +106,7 @@ public class BinarySearchTreeTest {
 
         @Test
         @DisplayName("inserta múltiples niveles")
-        void insertaMultiplesNiveles() {
+        void inserta_multiples_niveles() {
 
             // Act
             tree.insert(10);
@@ -123,7 +123,7 @@ public class BinarySearchTreeTest {
 
         @Test
         @DisplayName("lanza excepción al intentar insertar un valor duplicado")
-        void noInsertaValorDuplicado() {
+        void no_inserta_valor_duplicado() {
 
         
             // Act
@@ -139,7 +139,7 @@ public class BinarySearchTreeTest {
 
         @Test
         @DisplayName("lanzar excepción al intentar insertar un valor nulo")
-        void insertarValorNuloLanzaExcepcion() {
+        void insertar_valor_nulo_excepcion() {
             // Act y Assert
             assertThrows(BinarySearchTreeException.class, () -> {
                 tree.insert(null);
@@ -149,14 +149,14 @@ public class BinarySearchTreeTest {
     }
 
 
-    /* Render */     
+    /* Pruebas del método Render */     
     @Nested
     @DisplayName("Render")
     class PruebasRender {
 
         @Test
         @DisplayName("render en árbol vacío devuelve cadena vacía")
-        void renderArbolVacio() {
+        void render_arbol_vacio() {
             
             // Act
             String result = tree.render();
@@ -167,7 +167,7 @@ public class BinarySearchTreeTest {
 
         @Test
         @DisplayName("render con un solo nodo muestra solo el valor")
-        void renderNodoRaiz() {
+        void render_nodo_raiz() {
 
             // Act
             tree.insert(10);
@@ -178,7 +178,7 @@ public class BinarySearchTreeTest {
 
         @Test
         @DisplayName("render con subárbol izquierdo")
-        void renderConSubArbolIzquierdo() {
+        void render_subArbol_izq() {
         
             // Act
             tree.insert(10);
@@ -190,7 +190,7 @@ public class BinarySearchTreeTest {
 
         @Test
         @DisplayName("render con subárbol derecho")
-        void renderConSubArbolDerecho() {
+        void render_subArbol_dcho() {
 
             // Act
             tree.insert(10);
@@ -202,7 +202,7 @@ public class BinarySearchTreeTest {
 
         @Test
         @DisplayName("render con múltiples niveles")
-        void renderComplejo() {
+        void render_complejo() {
 
             // Act
             tree.insert(10);
@@ -216,7 +216,8 @@ public class BinarySearchTreeTest {
         }
     }
 
-    /* Isleaf */
+
+    /* Pruebas del método Isleaf */
     @Nested
     @DisplayName("isLeaf")
     class PruebasIsLeaf {
@@ -295,7 +296,7 @@ public class BinarySearchTreeTest {
 
 
 
-    /* Contains */
+    /* Pruebas del método Contains */
 
     @Nested
     @DisplayName("contains")
@@ -361,7 +362,7 @@ public class BinarySearchTreeTest {
 
     
 
-    /* Minimimum */
+    /* Pruebas del método Minimimum */
     @Nested
     @DisplayName("Minimum")
     class PruebasMinimum {
@@ -400,7 +401,7 @@ public class BinarySearchTreeTest {
         }
     }
 
-    /* Maximum */
+    /* Pruebas del método Maximum */
     @Nested
     @DisplayName("Maximum")
     class PruebasMaximum {
@@ -439,7 +440,7 @@ public class BinarySearchTreeTest {
         }
     }
 
-    /* RemoveBranch */
+    /* Pruebas del método RemoveBranch */
     @Nested
     @DisplayName("RemoveBranch")
     class PruebasRemoveBranch {
@@ -542,7 +543,7 @@ public class BinarySearchTreeTest {
         } 
     }
 
-    /* Size */
+    /* Pruebas del método Size */
     @Nested
     @DisplayName("Size")
     class PruebasSize {
@@ -582,7 +583,7 @@ public class BinarySearchTreeTest {
         }
     }
 
-    /* Depth */
+    /* Pruebas del método Depth */
     @Nested
     @DisplayName("Depth")
     class PruebasDepth {
@@ -622,5 +623,170 @@ public class BinarySearchTreeTest {
         }
     }
 
-}
+    /* Pruebas del método removeValue */
+    @Nested
+    @DisplayName("removeValue")
+    class PruebasRemoveVaue{
+    
+        @Test
+        @DisplayName("Lanza excepción si el valor es null")
+        public void excepcion_si_es_null () {
+            assertThrows(BinarySearchTreeException.class,() -> tree.removeValue(null));
+        }
 
+        @Test
+        @DisplayName("Lanza excepción si el valor no está contenido en el árbol")
+        public void excepcion_valor_no_estar_en_arbol () {
+            tree.insert(10);
+            tree.insert(5);
+
+            assertThrows(BinarySearchTreeException.class,() -> tree.removeValue(99));
+        }
+
+        @Test
+        @DisplayName("Elimina correctamente un nodo hoja (sin hijos)")
+        public void eliminar_nodo_hoja() {
+            tree.insert(10);
+            tree.insert(5);
+            tree.insert(15);
+            tree.insert(3);
+            tree.insert(12);
+
+            tree.removeValue(3);
+
+            assertEquals("10(5(,),15(12,))", tree.render());
+        }
+
+
+        @Test
+        @DisplayName("Elimina correctamente un nodo con un solo hijo izquierdo")
+        public void eliminar_nodo_con_hijo_izq() {
+            tree.insert(10);
+            tree.insert(5);
+            tree.insert(15);
+            tree.insert(3);
+            tree.insert(12);
+            // 15 tiene un solo hijo izquierdo: 12
+            tree.removeValue(15);
+
+            assertEquals("10(5(3,),12)", tree.render());
+        }
+
+        @Test
+        @DisplayName("Elimina correctamente un nodo con un solo hijo derecho")
+        public void eliminar_nodo_con_hijo_dcho() {
+            tree.insert(10);
+            tree.insert(5);
+            tree.insert(15);
+            tree.insert(8);
+            tree.insert(12);
+            // 15 tiene un solo hijo izquierdo: 12
+            tree.removeValue(5);
+
+            assertEquals("10(8,15(12,))", tree.render());
+        }
+
+        @Test
+        @DisplayName("Elimina correctamente un nodo con dos hijos")
+        public void eliminar_nodo_con_dos_hijos() {
+            tree.insert(10);
+            tree.insert(5);
+            tree.insert(15);
+            tree.insert(3);
+            tree.insert(12);
+
+            tree.removeValue(10);
+            
+            assertEquals("12(5(3,),15(,))", tree.render());
+        }
+    }
+
+    /* Pruebas del método inOrder */
+    @Nested
+    @DisplayName("inOrder")
+    class PruebasinOrder{
+        @Test
+        @DisplayName("Lanza excepción si el árbol está vacío")
+        public void excepcion_arbol_vacio() {
+            assertThrows(BinarySearchTreeException.class, () -> tree.inOrder());
+        }
+
+        @Test
+        @DisplayName("Devuelve correctamente un solo elemento si el árbol tiene un solo nodo")
+        public void deberiaDevolverUnicoElemento_SiArbolTieneUnNodo() {
+            tree.insert(10);
+
+            List<Integer> resultado = tree.inOrder();
+            
+            assertEquals(List.of(10), resultado);
+        }
+
+        @Test
+        @DisplayName("Devuelve la lista ordenada correctamente si el árbol tiene múltiples nodos")
+        public void deberiaDevolverListaOrdenada_CuandoArbolTieneMultiplesNodos() {
+            tree.insert(10);
+            tree.insert(5);
+            tree.insert(15);
+            tree.insert(3);
+            tree.insert(12);
+
+            List<Integer> resultado = tree.inOrder();
+            assertEquals(List.of(3, 5, 10, 12, 15), resultado);
+        }
+        
+    }
+
+    /* Pruebas del método balance */
+    @Nested
+    @DisplayName("balance")
+    class Pruebasbalance{
+        
+        @Test
+        @DisplayName("Lanza excepción si el árbol está vacío")
+        public void deberiaLanzarExcepcion_SiArbolEstaVacio() {
+            assertThrows(BinarySearchTreeException.class, () -> tree.balance());
+        }
+
+        @Test
+        @DisplayName("No cambia el árbol si solo tiene un nodo")
+        public void deberiaMantenerArbol_SiSoloTieneUnNodo() {
+            tree.insert(10);
+            tree.balance();
+            List<Integer> resultado = tree.inOrder();
+            
+            assertEquals("10", tree.render());
+        }
+
+        @Test
+        @DisplayName("Reorganiza correctamente un árbol desbalanceado")
+        public void deberiaBalancearArbolDesbalanceado_Correctamente() {
+            // Árbol totalmente desbalanceado hacia la derecha
+            tree.insert(1);
+            tree.insert(2);
+            tree.insert(3);
+            tree.insert(4);
+            tree.insert(5);
+
+            tree.balance();
+            
+            assertEquals("3(1(,2),4(,5))", tree.render());
+        }
+
+        @Test
+        @DisplayName("Mantiene el recorrido in-order ordenado después de balancear")
+        public void deberiaMantenerOrdenInOrder_DespuesDeBalancear() {
+            tree.insert(5);
+            tree.insert(3);
+            tree.insert(7);
+            tree.insert(1);
+            tree.insert(4);
+            tree.insert(6);
+            tree.insert(9);
+
+            tree.balance();
+
+            assertEquals("5(3(1,4),7(6,9))", tree.render());
+        }
+        
+    }
+}
