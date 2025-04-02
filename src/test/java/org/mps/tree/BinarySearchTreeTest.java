@@ -1,3 +1,4 @@
+/* Soraya Bennai Sadqi y Marcos Luque Montiel */   
 package org.mps.tree;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -224,7 +225,7 @@ public class BinarySearchTreeTest {
 
         @Test
         @DisplayName("lanza excepción si el árbol está vacío")
-        void isLeafArbolVacioLanzaExcepcion() {
+        void is_leaf_arbol_vacio_excepcion() {
             // Arrange
             BinarySearchTree<Integer> tree = new BinarySearchTree<>(Integer::compareTo);
 
@@ -234,7 +235,7 @@ public class BinarySearchTreeTest {
 
         @Test
         @DisplayName("retorna true si el nodo no tiene hijos")
-        void isLeafNodoSinHijos() {
+        void is_leaf_nodo_sin_hijos() {
             // Arrange
             BinarySearchTree<Integer> tree = new BinarySearchTree<>(Integer::compareTo);
             tree.insert(10);
@@ -249,7 +250,7 @@ public class BinarySearchTreeTest {
 
         @Test
         @DisplayName("retorna false si el nodo tiene al menos un hijo en el arbol izquierdo")
-        void isLeafNodoConHijoIzquierdo() {
+        void is_leaf_nodo_hijo_izq() {
             // Arrange
             BinarySearchTree<Integer> tree = new BinarySearchTree<>(Integer::compareTo);
             tree.insert(10);
@@ -264,7 +265,7 @@ public class BinarySearchTreeTest {
 
         @Test
         @DisplayName("retorna false si el nodo tiene al menos un hijo en el arbol derecho")
-        void isLeafNodoConHijoDerecho() {
+        void is_leaf_nodo_hijo_dch() {
             // Arrange
             BinarySearchTree<Integer> tree = new BinarySearchTree<>(Integer::compareTo);
             tree.insert(10);
@@ -279,7 +280,7 @@ public class BinarySearchTreeTest {
 
         @Test
         @DisplayName("retorna false si el nodo tiene dos hijos")
-        void isLeafNodoConDosHijo() {
+        void is_leaf_nodo_ambos() {
             // Arrange
             BinarySearchTree<Integer> tree = new BinarySearchTree<>(Integer::compareTo);
             tree.insert(10);
@@ -304,7 +305,7 @@ public class BinarySearchTreeTest {
 
         @Test
         @DisplayName("lanza excepción si el valor a buscar es nulo")
-        void containsValorNuloLanzaExcepcion() {
+        void contains_valor_nulo_excepcion() {
             // Arrange
             BinarySearchTree<Integer> tree = new BinarySearchTree<>(Integer::compareTo);
 
@@ -316,7 +317,7 @@ public class BinarySearchTreeTest {
 
         @Test
         @DisplayName("retorna false si el árbol está vacío")
-        void containsEnArbolVacio() {
+        void contains_en_arbol_vacio() {
             // Arrange
             BinarySearchTree<Integer> tree = new BinarySearchTree<>(Integer::compareTo);
 
@@ -329,7 +330,7 @@ public class BinarySearchTreeTest {
 
         @Test
         @DisplayName("retorna true si el valor está en el árbol")
-        void contieneValor() {
+        void contiene_valor() {
             // Arrange
             BinarySearchTree<Integer> tree = new BinarySearchTree<>(Integer::compareTo);
             tree.insert(10);
@@ -345,7 +346,7 @@ public class BinarySearchTreeTest {
 
         @Test
         @DisplayName("retorna false si el valor no está en el árbol")
-        void noContieneValor() {
+        void no_contiene_valor() {
             // Arrange
             BinarySearchTree<Integer> tree = new BinarySearchTree<>(Integer::compareTo);
             tree.insert(10);
@@ -369,7 +370,7 @@ public class BinarySearchTreeTest {
 
         @Test
         @DisplayName("lanza excepción si el árbol está vacío")
-        void minimumArbolVacioLanzaExcepcion() {
+        void min_arbol_vacio_excepcion() {
             // Act y Assert
             assertThrows(BinarySearchTreeException.class, () -> {
                 tree.minimum();
@@ -378,7 +379,7 @@ public class BinarySearchTreeTest {
 
         @Test
         @DisplayName("devuelve el valor mínimo en un árbol con un solo nodo")
-        void minimumUnicoNodo() {
+        void min_unico_nodo() {
             // Act
             tree.insert(10);
 
@@ -388,7 +389,7 @@ public class BinarySearchTreeTest {
 
         @Test
         @DisplayName("devuelve el valor mínimo en un árbol con varios nodos")
-        void minimumMultiplesNodos() {
+        void min_multiples_nodos() {
             // Act
             tree.insert(10);
             tree.insert(5);
@@ -408,7 +409,7 @@ public class BinarySearchTreeTest {
 
         @Test
         @DisplayName("lanza excepción si el árbol está vacío")
-        void maximumArbolVacioLanzaExcepcion() {
+        void max_arbol_vacio_excepcion() {
             // Act y Assert
             assertThrows(BinarySearchTreeException.class, () -> {
                 tree.maximum();
@@ -417,7 +418,7 @@ public class BinarySearchTreeTest {
 
         @Test
         @DisplayName("devuelve el valor máximo en un árbol con un solo nodo")
-        void maximumUnicoNodo() {
+        void max_unico_nodo() {
             // Act
             tree.insert(10);
 
@@ -427,7 +428,7 @@ public class BinarySearchTreeTest {
 
         @Test
         @DisplayName("devuelve el valor máximo en un árbol con varios nodos")
-        void maximumMultiplesNodos() {
+        void max_multiples_nodos() {
             // Act
             tree.insert(10);
             tree.insert(5);
@@ -447,7 +448,7 @@ public class BinarySearchTreeTest {
 
         @Test
         @DisplayName("lanza excepción si el árbol está vacío")
-        void removeBranchArbolVacioLanzaExcepcion() {
+        void removeBranch_arbol_vacio_excepcion() {
             // Act y Assert
             assertThrows(BinarySearchTreeException.class, () -> {
                 tree.removeBranch(10);
@@ -456,7 +457,7 @@ public class BinarySearchTreeTest {
 
         @Test
         @DisplayName("lanza excepción si el valor a eliminar es nulo")
-        void removeBranchValorNuloLanzaExcepcion() {
+        void removeBranch_valor_nulo_excepcion() {
             // Act y Assert
             assertThrows(BinarySearchTreeException.class, () -> {
                 tree.removeBranch(null);
@@ -465,7 +466,7 @@ public class BinarySearchTreeTest {
 
         @Test
         @DisplayName("lanza excepción si el valor no está en el árbol")
-        void removeBranchValorNoEnArbolLanzaExcepcion() {
+        void removeBranch_valor_no_en_arbol_excepcion() {
             // Act
             tree.insert(10);
 
@@ -477,7 +478,7 @@ public class BinarySearchTreeTest {
 
         @Test
         @DisplayName("elimina el nodo raíz en un árbol con un solo nodo")
-        void removeBranchUnicoNodo() {
+        void removeBranch_unico_nodo() {
             // Act
             tree.insert(10);
             tree.removeBranch(10);
@@ -488,7 +489,7 @@ public class BinarySearchTreeTest {
 
         @Test
         @DisplayName("elimina un nodo hoja")
-        void removeBranchNodoHoja() {
+        void removeBranch_nodo_hoja() {
             // Act
             tree.insert(10);
             tree.insert(5);
@@ -501,7 +502,7 @@ public class BinarySearchTreeTest {
 
         @Test
         @DisplayName("elimina un nodo con un hijo")
-        void removeBranchNodoConHijo() {
+        void removeBranch_nodo_con_hijo() {
             // Act
             tree.insert(10);
             tree.insert(5);
@@ -514,7 +515,7 @@ public class BinarySearchTreeTest {
 
         @Test
         @DisplayName("elimina un nodo con dos hijos")
-        void removeBranchNodoConDosHijos() {
+        void removeBranch_nodo_con_dos_hijos() {
             // Act
             tree.insert(10);
             tree.insert(5);
@@ -529,7 +530,7 @@ public class BinarySearchTreeTest {
 
         @Test
         @DisplayName("Elimina una rama del árbol derecho")
-        void removeBranchRamaDerecha() {
+        void removeBranch_rama_dcho() {
             // Act
             tree.insert(10);
             tree.insert(5);
@@ -550,7 +551,7 @@ public class BinarySearchTreeTest {
 
         @Test
         @DisplayName("retorna 0 si el árbol está vacío")
-        void sizeArbolVacio() {
+        void size_arbol_vacio() {
             // Act
             int result = tree.size();
 
@@ -560,7 +561,7 @@ public class BinarySearchTreeTest {
 
         @Test
         @DisplayName("retorna 1 si el árbol tiene un solo nodo")
-        void sizeUnicoNodo() {
+        void size_unico_nodo() {
             // Act
             tree.insert(10);
 
@@ -570,7 +571,7 @@ public class BinarySearchTreeTest {
 
         @Test
         @DisplayName("retorna el número de nodos en un árbol con varios nodos")
-        void sizeMultiplesNodos() {
+        void size_multiples_nodos() {
             // Act
             tree.insert(10);
             tree.insert(5);
@@ -590,7 +591,7 @@ public class BinarySearchTreeTest {
 
         @Test
         @DisplayName("retorna 0 si el árbol está vacío")
-        void depthArbolVacio() {
+        void depth_arbol_vacio() {
             // Act
             int result = tree.depth();
 
@@ -600,7 +601,7 @@ public class BinarySearchTreeTest {
 
         @Test
         @DisplayName("retorna 1 si el árbol tiene un solo nodo")
-        void depthUnicoNodo() {
+        void depth_unico_nodo() {
             // Act
             tree.insert(10);
 
@@ -610,7 +611,7 @@ public class BinarySearchTreeTest {
 
         @Test
         @DisplayName("retorna la profundidad del árbol")
-        void depthMultiplesNodos() {
+        void depth_multiples_nodos() {
             // Act
             tree.insert(10);
             tree.insert(5);
@@ -630,13 +631,13 @@ public class BinarySearchTreeTest {
     
         @Test
         @DisplayName("Lanza excepción si el valor es null")
-        public void excepcion_si_es_null () {
+        public void removeValue_excepcion_si_es_null () {
             assertThrows(BinarySearchTreeException.class,() -> tree.removeValue(null));
         }
 
         @Test
         @DisplayName("Lanza excepción si el valor no está contenido en el árbol")
-        public void excepcion_valor_no_estar_en_arbol () {
+        public void removeValue_excepcion_valor_no_estar_en_arbol () {
             tree.insert(10);
             tree.insert(5);
 
@@ -645,7 +646,7 @@ public class BinarySearchTreeTest {
 
         @Test
         @DisplayName("Elimina correctamente un nodo hoja (sin hijos)")
-        public void eliminar_nodo_hoja() {
+        public void removeValue_eliminar_nodo_hoja() {
             tree.insert(10);
             tree.insert(5);
             tree.insert(15);
@@ -660,7 +661,7 @@ public class BinarySearchTreeTest {
 
         @Test
         @DisplayName("Elimina correctamente un nodo con un solo hijo izquierdo")
-        public void eliminar_nodo_con_hijo_izq() {
+        public void removeValue_eliminar_nodo_con_hijo_izq() {
             tree.insert(10);
             tree.insert(5);
             tree.insert(15);
@@ -674,7 +675,7 @@ public class BinarySearchTreeTest {
 
         @Test
         @DisplayName("Elimina correctamente un nodo con un solo hijo derecho")
-        public void eliminar_nodo_con_hijo_dcho() {
+        public void removeValue_eliminar_nodo_con_hijo_dcho() {
             tree.insert(10);
             tree.insert(5);
             tree.insert(15);
@@ -688,7 +689,7 @@ public class BinarySearchTreeTest {
 
         @Test
         @DisplayName("Elimina correctamente un nodo con dos hijos")
-        public void eliminar_nodo_con_dos_hijos() {
+        public void removeValue_eliminar_nodo_con_dos_hijos() {
             tree.insert(10);
             tree.insert(5);
             tree.insert(15);
@@ -707,13 +708,13 @@ public class BinarySearchTreeTest {
     class PruebasinOrder{
         @Test
         @DisplayName("Lanza excepción si el árbol está vacío")
-        public void excepcion_arbol_vacio() {
+        public void inOrder_excepcion_arbol_vacio() {
             assertThrows(BinarySearchTreeException.class, () -> tree.inOrder());
         }
 
         @Test
         @DisplayName("Devuelve correctamente un solo elemento si el árbol tiene un solo nodo")
-        public void deberiaDevolverUnicoElemento_SiArbolTieneUnNodo() {
+        public void inOrder_unico_elemento_si_arbol_tiene_un_nodo() {
             tree.insert(10);
 
             List<Integer> resultado = tree.inOrder();
@@ -723,7 +724,7 @@ public class BinarySearchTreeTest {
 
         @Test
         @DisplayName("Devuelve la lista ordenada correctamente si el árbol tiene múltiples nodos")
-        public void deberiaDevolverListaOrdenada_CuandoArbolTieneMultiplesNodos() {
+        public void inOrder_listaOrdenada() {
             tree.insert(10);
             tree.insert(5);
             tree.insert(15);
@@ -743,13 +744,13 @@ public class BinarySearchTreeTest {
         
         @Test
         @DisplayName("Lanza excepción si el árbol está vacío")
-        public void deberiaLanzarExcepcion_SiArbolEstaVacio() {
+        public void balance_excepcion__arbol_vacio() {
             assertThrows(BinarySearchTreeException.class, () -> tree.balance());
         }
 
         @Test
         @DisplayName("No cambia el árbol si solo tiene un nodo")
-        public void deberiaMantenerArbol_SiSoloTieneUnNodo() {
+        public void balance_un_nodo() {
             tree.insert(10);
             tree.balance();
             List<Integer> resultado = tree.inOrder();
@@ -759,7 +760,7 @@ public class BinarySearchTreeTest {
 
         @Test
         @DisplayName("Reorganiza correctamente un árbol desbalanceado")
-        public void deberiaBalancearArbolDesbalanceado_Correctamente() {
+        public void balance_arbol_desbalanceado() {
             // Árbol totalmente desbalanceado hacia la derecha
             tree.insert(1);
             tree.insert(2);
@@ -774,7 +775,7 @@ public class BinarySearchTreeTest {
 
         @Test
         @DisplayName("Mantiene el recorrido in-order ordenado después de balancear")
-        public void deberiaMantenerOrdenInOrder_DespuesDeBalancear() {
+        public void balance_conserva_InOrder() {
             tree.insert(5);
             tree.insert(3);
             tree.insert(7);
